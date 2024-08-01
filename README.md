@@ -1,2 +1,4 @@
 # zkChess
-Provable chess game. Moves are sent via email. It use ZkEmail and Hylé.
+Provable chess game. Moves are sent via email. It uses :
+ - ZkEmail - https://zkemail.gitbook.io/zk-email
+ - Hylé - https://docs.hyle.eu/developers/
