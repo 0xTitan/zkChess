@@ -1,0 +1,12 @@
+{
+    "parts": [
+        {
+            "is_public": false,
+            "regex_def": "Next move from @"
+        },
+        {
+            "is_public": true,
+            "regex_def": "([a-zA-Z0-9_]+) is (B|K|N|P|Q|R)(a|b|c|d|e|f|g|h)[1-8]"
+        }
+    ]
+}

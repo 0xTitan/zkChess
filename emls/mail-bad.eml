@@ -1,0 +1,88 @@
+Delivered-To: titangreed@gmail.com
+Received: by 2002:a9a:5c0a:0:b0:299:2391:51e with SMTP id f10csp1344391lkg;
+        Mon, 5 Aug 2024 04:27:03 -0700 (PDT)
+X-Received: by 2002:a5d:518c:0:b0:367:8383:62e2 with SMTP id ffacd0b85a97d-36bbc0fac56mr7596731f8f.29.1722857223346;
+        Mon, 05 Aug 2024 04:27:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1722857223; cv=none;
+        d=google.com; s=arc-20160816;
+        b=yc9cGfI9FoNrUe7an8nX5bc7LkmO3CV4IigDhRC6inT/+4piPnIopNjiP/4EOoY9Hy
+         r2ZQjYQR1IcaGZ2GO/Ht5snjXgAf/9pt8FHP3hwIF228r6TisEhj8RazRbRopWEnTnIt
+         7/iv2vZe3oeUjoKhwJDT7Zcqd9Ik9sQsmWVGYB/fNKEBeaSotfE536k9eABQkr5AYbM4
+         p2I0unUJYVSUhINmwg87Z2ZfdIXH3CA05ixjKnYvacRawVFZ5KyHA4cDatQFmZOu63d7
+         BaUjmxV7E2MPx/2GO9SzFljIR3pQq58nCzt4YwF+cz4tkvn0ozxnLD4romZFjBQpDkIA
+         rjTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=QS2o+dXTGQbErT/ntFnfYuGzERcTos9wZ22jP9HLzEs=;
+        fh=lMGDCZu5+2PhghTlZyKKyaJ5sfjB3ycb8k2jxnzeXxI=;
+        b=i20g3TMENn45RaiqqfZDVs3PG9wQLrKkVf0tY1RPWiKAcNb1uQPyy2Qb+ndlMBw/As
+         ZRvdWMxWCANpdbn64q4d1lUR/3M1Ia5ioNK0euL24x/z70YlD0sHJvg9e/t//nzHqLmS
+         1fUCa9VlNhoFeC/FwhEfWRjdpv6FB2ZuSaCdAfZgWwviX1FySNV6FDiWrREFwd6LJK/B
+         bkAO5OKN3XD24luVxps/vmpigPRiKb7gKRUlK7Go2ZVCx64v0GPXcN2KPKbJgtZFDOzQ
+         rx4y5iKwqaEoUoNKQTXD82aSh0N50ILfLp2KEMqQp4NbP2czCwwPG0wgHrXuK1MbrAuh
+         jzQw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=IFVzziI+;
+       spf=pass (google.com: domain of clement.suzat@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=clement.suzat@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <clement.suzat@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id ffacd0b85a97d-36bbd29a91dsor1701020f8f.10.2024.08.05.04.27.03
+        for <titangreed@gmail.com>
+        (Google Transport Security);
+        Mon, 05 Aug 2024 04:27:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of clement.suzat@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=IFVzziI+;
+       spf=pass (google.com: domain of clement.suzat@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=clement.suzat@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1722857223; x=1723462023; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=QS2o+dXTGQbErT/ntFnfYuGzERcTos9wZ22jP9HLzEs=;
+        b=IFVzziI+JUvkMzlrWNECb0cnqJCXyGB95s7sOYNBdVHTxPXb4Dm7/cwdcAIyvzRT3j
+         A8Tl86YOjySkB+m39e7wUDrbwiI6UguHa6cq8II3J+QMAHbKMlRcEfnbGFDXoFDgfRaL
+         G3x+28GzJ42+PLFkdkXFFXKG22AOokFiIOajbEa+9oqwDdII9aX+oqbA/flWfRAuuH+R
+         1Tc2ar3rL0zaFnRlFPpKWOuM4iizad/QT2u+HwWhT8qNshuX+1yBs10EakoUmkssO49I
+         3V0W/mOeMVFsQ6UgaYCFQKLpXG7t+GvU+lvM/rbKWRuUSZJq4hQohGmzxX82IYnJ6pOv
+         kZSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722857223; x=1723462023;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QS2o+dXTGQbErT/ntFnfYuGzERcTos9wZ22jP9HLzEs=;
+        b=BXee7PSbpSLkakXpaC4KDUJYUuOogpPMak5R1EvJV80WP9Unz7ULCeu+VzOk3/omTC
+         mNGWr0mqLCSjaJ3s7Ws5FvonAIyQjBqZ9ZtMnzHYWilRofZjw8lbYCufb+SmmvjKrNnR
+         PCfsm9hwz2I6h6EEYPJkQjJYDEg7V4q1eZ/+q9G2iF43uAK0ppaihJhW7TpbBuySAtzu
+         c6fXO+vpTQhdACyx2YmOBLfUGbHTeEY9b+ERxY1rJRH1suNukCVGbtcyovSPmBEkDtw3
+         tiO3ENmfvakTmy/cfJkTujUvZcUj2PpoGP/NmGwfgpTjeW99D32ZzTkx/FNFclrT1dVn
+         pS/A==
+X-Gm-Message-State: AOJu0YzTTQgZnvyjeZ3Pl9fdZyvhl39tFRxZLu4hSYg0ErlGG1fwKlGR ZD0i7K3ymcTCEtaWFYE2vd+qv8rFxz1P9EXRu5VE61imXBfV61ttjGwm/+zDYR9R9ECHpaRi5gB 3c29HMa+auZIbxWWShAydXP87An+L2hwa
+X-Google-Smtp-Source: AGHT+IGIZBgTO820sZAFgA3T6ZCzwyZuOEOc2CuvgOXCSmI3ENSXSLHzOTJiS6PAou1w+aV/2WjOnjoklEwLOTK1E2c=
+X-Received: by 2002:a5d:6b10:0:b0:368:4634:c419 with SMTP id ffacd0b85a97d-36bbc17e2bcmr7771057f8f.58.1722857222526; Mon, 05 Aug 2024 04:27:02 -0700 (PDT)
+MIME-Version: 1.0
+From: "Clément Suzat" <clement.suzat@gmail.com>
+Date: Mon, 5 Aug 2024 13:26:51 +0200
+Message-ID: <CABMGELHiOJ=zWm6pucCNdzgdAN2+8C2ts9-h1-Q=8sez3-_byw@mail.gmail.com>
+Subject: zkChess
+To: titangreed@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000bf5e35061eedf4a7"
+
+--000000000000bf5e35061eedf4a7
+Content-Type: text/plain; charset="UTF-8"
+
+Next move from @zkChess is Ba8
+
+--000000000000bf5e35061eedf4a7
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">
+<pre class="gmail-raw_message_text" id="gmail-raw_message_text">Next move from @zkChess is Ba8</pre>
+
+</div>
+
+--000000000000bf5e35061eedf4a7--

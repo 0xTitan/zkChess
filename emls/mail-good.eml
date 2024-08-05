@@ -1,0 +1,58 @@
+x-sender: clement.suzat@gmail.com
+x-receiver: test-387b178a@appmaildev.com
+Received: from mail-wr1-f43.google.com ([209.85.221.43]) by appmaildev.com over TLS secured channel with Microsoft SMTPSVC(8.5.9600.16384);
+	 Mon, 5 Aug 2024 16:54:47 +0000
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-3687fb526b9so5576774f8f.0
+        for <test-387b178a@appmaildev.com>; Mon, 05 Aug 2024 09:54:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1722876885; x=1723481685; darn=appmaildev.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Cti71o6SHp7SxUKAXIkKsULmi9EFnEUwoyVpMYzvRcc=;
+        b=aeuLryK/wJDgKbIE7podMBUsIzPRGPl7ztxw2+jRTMScvzPDyt6ATWhMmeiOJm6jxk
+         lTpztN7pSKmZa2ChUj6rmPbCZ/dE+r0jehPMpAIB1CSDJpr9WlatAtzLcId9vawjZqm/
+         Btrd8tvsKn9hq0RIm9WHCuv4pP+uKwsNr5YR9jNn6KZZ90jtYnErL0Xpob1cXKn/J/Rh
+         NigXzHuB071RLoSkzRVusUd9lCviwnUnILTm5yXJRO894GRyQ63B+Xdkexaty2BN8AmJ
+         8lKeXd2M1NjbGlc34WfsEOAUujoTFHUQLxEGox2R0dpRQA38W+7YmkJuEj/KTBwpJO53
+         VFYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1722876885; x=1723481685;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Cti71o6SHp7SxUKAXIkKsULmi9EFnEUwoyVpMYzvRcc=;
+        b=EzXjWZIbz55dV6YWBgZsZ3MQLwOV2r4BFGqFwhrEOtq0+I/WSXuKkzkHl5Nk/4F7gC
+         WZRecTuGQ94JCy8sOpKsuJvwy90/TaBzXpRdodGXLsqR43LSbHk6QE6l9U6CFDHX21MB
+         LMRw6sUhjVTIZbWiJKWuSp4Xi0lPKggAEw7vMrfZg7TmHYbS2rDk3V2ejIDgcrphpqE+
+         zE2Ge3WbT5c+6K3P9E9OJs0plsYZzfHh5REml8xsh8lKBcKXD42KMg/Zdkwqz+CtJq8V
+         eJjWoJISD5Ml7VXhRPZNgcKXiVXOfTlO7mufTk1E4AAyHEvSGmFXCHlCqQk7vz2fTNCK
+         RYJw==
+X-Gm-Message-State: AOJu0YyCxAht+duilPUNU2t+Fa+pqqH31+Kz/OXtZd74CMs7rmgbzEIs
+	RrJ4J0GWLiN8DuKNsYY+X+8kgfQ2PpGKzddkR+K3L9LvisfNYYJdmKfs2B64aRHNhnqNaCrI89D
+	16HMj2EzGO9gE7zqfhLNmCrAjwtlZKg==
+X-Google-Smtp-Source: AGHT+IFrrh+NAcZW2u7Fx2rVGyGw8F41tOwAeT/yG8608FfGmOPJnFC4RezQ4ZGEasKmxuXEGihelQqTkzUl5YJZO6I=
+X-Received: by 2002:a5d:634a:0:b0:367:9851:4f22 with SMTP id
+ ffacd0b85a97d-36bbc1d2ee9mr8647099f8f.58.1722876884780; Mon, 05 Aug 2024
+ 09:54:44 -0700 (PDT)
+MIME-Version: 1.0
+From: =?UTF-8?Q?Cl=C3=A9ment_Suzat?= <clement.suzat@gmail.com>
+Date: Mon, 5 Aug 2024 18:54:34 +0200
+Message-ID: <CABMGELGcPG29-d6v+UZLoGcNiXnG3JByNcpn2qG7veCJhryNUQ@mail.gmail.com>
+Subject: zkChess
+To: test-387b178a@appmaildev.com
+Content-Type: multipart/alternative; boundary="000000000000b58e6e061ef2881c"
+Return-Path: clement.suzat@gmail.com
+X-OriginalArrivalTime: 05 Aug 2024 16:54:47.0544 (UTC) FILETIME=[2DFB6780:01DAE758]
+
+--000000000000b58e6e061ef2881c
+Content-Type: text/plain; charset="UTF-8"
+
+Next move from @zkchess is Ba8
+
+--000000000000b58e6e061ef2881c
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Next move from=C2=A0<a class=3D"gmail_plusreply" id=3D"plu=
+sReplyChip-0">@zkchess</a> is Ba8<br clear=3D"all"></div>
+
+--000000000000b58e6e061ef2881c--
