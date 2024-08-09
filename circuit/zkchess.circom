@@ -17,12 +17,11 @@ template ZkChessVerifier(maxHeadersLength, maxBodyLength, n, k, exposeFrom) {
     signal input emailBodyLength;
     signal input bodyHashIndex;
     signal input precomputedSHA[32];
-    signal input twitterUsernameIndex;
-    signal input address; // we don't need to constrain the + 1 due to https://geometry.xyz/notebook/groth16-malleability
+    signal input chessMoveIndex;
 
 
     signal output pubkeyHash;
-    signal output twitterUsername;
+    signal output chessMove;
 
 
     component EV = EmailVerifier(maxHeadersLength, maxBodyLength, n, k, 0);
@@ -51,18 +50,16 @@ template ZkChessVerifier(maxHeadersLength, maxBodyLength, n, k, exposeFrom) {
     }
 
 
-    // TWITTER REGEX: 328,044 constraints
-    // This computes the regex states on each character in the email body. For other apps, this is the
-    // section that you want to swap out via using the zk-regex library.
-    signal (twitterFound, twitterReveal[maxBodyLength]) <== ZkChessMailRegex(maxBodyLength)(emailBody);
-    twitterFound === 1;
+    
+    signal (chessMoveFound, chessMoveReveal[maxBodyLength]) <== ZkChessMailRegex(maxBodyLength)(emailBody);
+    chessMoveFound === 1;
 
-    // Pack the username to int
-    var maxTwitterUsernameLength = 21;
-    signal twitterUsernamePacks[1] <== PackRegexReveal(maxBodyLength, maxTwitterUsernameLength)(twitterReveal, twitterUsernameIndex);
+    // Pack the move to int
+    var maxMoveLength = 50;
+    signal chessMovePacks[2] <== PackRegexReveal(maxBodyLength, maxMoveLength)(chessMoveReveal, chessMoveIndex);
    
     // Username will fit in one field element, so we take the first item from the packed array.
-    twitterUsername <== twitterUsernamePacks[0];
+    chessMove <== chessMovePacks[1];
 }
 
-component main { public [ address ] } = ZkChessVerifier(1024, 1536, 121, 17, 0);
+component main = ZkChessVerifier(1024, 1536, 121, 17, 0);

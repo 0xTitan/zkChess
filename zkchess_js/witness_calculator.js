@@ -134,11 +134,13 @@ class WitnessCalculator {
         const keys = Object.keys(input);
 	var input_counter = 0;
         keys.forEach( (k) => {
+            console.log("k",k);
             const h = fnvHash(k);
             const hMSB = parseInt(h.slice(0,8), 16);
             const hLSB = parseInt(h.slice(8,16), 16);
             const fArr = flatArray(input[k]);
 	    let signalSize = this.instance.exports.getInputSignalSize(hMSB, hLSB);
+        console.log("signalSize",signalSize);
 	    if (signalSize < 0){
 		throw new Error(`Signal ${k} not found\n`);
 	    }
