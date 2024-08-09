@@ -3,7 +3,9 @@ Provable chess game. Moves are sent via email. It uses :
  - ZkEmail - https://zkemail.gitbook.io/zk-email
  - Hylé - https://docs.hyle.eu/developers/
 
- Compile circuit from root :
+From root directory
+
+ Compile circuit :
  ```circom -l node_modules circuit/zkchess.circom -o --r1cs --wasm --sym --c --O0``` 
 
 Generate file input.json :
