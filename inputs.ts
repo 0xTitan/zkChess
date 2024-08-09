@@ -19,17 +19,16 @@ export async function generateChessMoveVerifierCircuitInputs() {
     const bodyRemaining = emailVerifierInputs.emailBody!.map(c => Number(c));
     const selectorBuffer = Buffer.from(STRING_PRESELECTOR);
     const moveIndex = Buffer.from(bodyRemaining).indexOf(selectorBuffer) + selectorBuffer.length;
-    console.log("bodyRemaining : ", bodyRemaining);
-    console.log("selectorBuffer : ", selectorBuffer);
-    console.log("moveIndex : ", moveIndex);
-    console.log("emailVerifierInputs : ", emailVerifierInputs);
+    // console.log("bodyRemaining : ", bodyRemaining);
+    // console.log("selectorBuffer : ", selectorBuffer);
+    // console.log("moveIndex : ", moveIndex);
+    // console.log("emailVerifierInputs : ", emailVerifierInputs);
  
-    const address = bytesToBigInt(fromHex("0x71C7656EC7ab88b098defB751B7401B5f6d897")).toString();
+    //const address = bytesToBigInt(fromHex("0x71C7656EC7ab88b098defB751B7401B5f6d897")).toString();
  
     const inputJson = {
         ...emailVerifierInputs,
-        moveIndex: moveIndex.toString(),
-        address
+        moveIndex: moveIndex.toString()
     };
     console.log("inputJson : ", inputJson);
     fs.writeFileSync("./input.json", JSON.stringify(inputJson))
