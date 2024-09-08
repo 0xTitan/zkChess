@@ -2,3 +2,7 @@ node_modules/
 *.lock
 zkchess.r1cs
 zkchess.sym
+*.ptau
+*.zkey
+*.wasm
+*.wtns

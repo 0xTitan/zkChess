@@ -1,0 +1,1 @@
+node zkchess_js/generate_witness.js zkchess_js/zkchess.wasm input.json witness.wtns

@@ -7,7 +7,7 @@ include "./zkchess-mail-regex.circom";
 
 
 template ZkChessVerifier(maxHeadersLength, maxBodyLength, n, k, exposeFrom) {
-     assert(exposeFrom < 2);
+     assert(n*k >1024);
 
     signal input emailHeader[maxHeadersLength];
     signal input emailHeaderLength;
@@ -17,49 +17,33 @@ template ZkChessVerifier(maxHeadersLength, maxBodyLength, n, k, exposeFrom) {
     signal input emailBodyLength;
     signal input bodyHashIndex;
     signal input precomputedSHA[32];
-    signal input chessMoveIndex;
-
-
-    signal output pubkeyHash;
-    signal output chessMove;
-
+  
 
     component EV = EmailVerifier(maxHeadersLength, maxBodyLength, n, k, 0);
     EV.emailHeader <== emailHeader;
     EV.pubkey <== pubkey;
     EV.signature <== signature;
     EV.emailHeaderLength <== emailHeaderLength;
-    EV.bodyHashIndex <== bodyHashIndex;
-    EV.precomputedSHA <== precomputedSHA;
-    EV.emailBody <== emailBody;
-    EV.emailBodyLength <== emailBodyLength;
+    EV.bodyHashIndex <==bodyHashIndex;
+    EV.precomputedSHA <==precomputedSHA;
+    EV.emailBody<==emailBody;
+    EV.emailBodyLength<==emailBodyLength;
 
+
+    signal output pubkeyHash;
     pubkeyHash <== EV.pubkeyHash;
-
-
-    // FROM HEADER REGEX: 736,553 constraints
-    if (exposeFrom) {
-        signal input fromEmailIndex;
-
-        signal (fromEmailFound, fromEmailReveal[maxHeadersLength]) <== FromAddrRegex(maxHeadersLength)(emailHeader);
-        fromEmailFound === 1;
-
-        var maxEmailLength = 255;
-
-        signal output fromEmailAddrPacks[9] <== PackRegexReveal(maxHeadersLength, maxEmailLength)(fromEmailReveal, fromEmailIndex);
-    }
-
+ 
 
     
-    signal (chessMoveFound, chessMoveReveal[maxBodyLength]) <== ZkChessMailRegex(maxBodyLength)(emailBody);
+    signal (chessMoveFound, chessMoveReveal[maxBodyLength]);
+    (chessMoveFound,chessMoveReveal)  <== ZkChessMailRegex(maxBodyLength)(emailBody);
     chessMoveFound === 1;
 
     // Pack the move to int
+    signal input moveIndex;
     var maxMoveLength = 50;
-    signal chessMovePacks[2] <== PackRegexReveal(maxBodyLength, maxMoveLength)(chessMoveReveal, chessMoveIndex);
-   
-    // Username will fit in one field element, so we take the first item from the packed array.
-    chessMove <== chessMovePacks[1];
+    signal output usernamePackedOut[computeIntChunkLength(maxMoveLength)];
+    usernamePackedOut <== PackRegexReveal(maxBodyLength, maxMoveLength)(chessMoveReveal, moveIndex);
 }
 
-component main = ZkChessVerifier(1024, 1536, 121, 17, 0);
+component main = ZkChessVerifier(576, 832, 121, 17, 0);

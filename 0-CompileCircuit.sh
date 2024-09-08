@@ -1,0 +1,1 @@
+circom -l node_modules circuit/zkchess.circom  -o --r1cs --wasm --sym --c --O0
