@@ -4,5 +4,5 @@ zkchess.r1cs
 zkchess.sym
 *.ptau
 *.zkey
-*.wasm
+zkchess_js/zkchess.wasm
 *.wtns
