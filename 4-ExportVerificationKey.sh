@@ -1,1 +1,1 @@
-snarkjs zkey export verificationkey zkchess_0001.zkey verification_key.json
+snarkjs zkey export verificationkey zkchess.zkey verification_key.json

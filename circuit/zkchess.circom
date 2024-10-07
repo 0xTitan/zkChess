@@ -33,7 +33,8 @@ template ZkChessVerifier(maxHeadersLength, maxBodyLength, n, k, exposeFrom) {
     signal output pubkeyHash;
     pubkeyHash <== EV.pubkeyHash;
  
-
+    signal output hyleData[8];
+    hyleData <== [104,121,102,101,68,97,116,97];
     
     signal (chessMoveFound, chessMoveReveal[maxBodyLength]);
     (chessMoveFound,chessMoveReveal)  <== ZkChessMailRegex(maxBodyLength)(emailBody);
